@@ -75,6 +75,7 @@ const createNewProduct = async (req, res) => {
     }
     console.log(req.body)
     const {nombre, precio, descripcion, cantidad, codigo} = req.body
+    console.log(nombre, precio, descripcion, cantidad, codigo)
 
 //     const uniqueFileName = uuidv4() + path.extname(imageFile.originalname);
 
