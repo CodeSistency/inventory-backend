@@ -69,7 +69,7 @@ const createNewProduct = async (req, res) => {
     const imageFile = req.file;
 
 
-    if (!req?.body?.titulo || !req?.body?.descripcion) {
+    if (!req?.body?.nombre || !req?.body?.descripcion) {
         return res.status(400).json({ 'message': 'First and last names are required' });
         
     }
