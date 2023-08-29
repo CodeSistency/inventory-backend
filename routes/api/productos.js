@@ -21,7 +21,7 @@ router.route('/').get(productController.getAllProducts)
 
 router.route('/').get(productController.createNewProduct)
 
-router.route('/search').get(productController.searchProducts)
+// router.route('/search').get(productController.searchProducts)
 
 // router.put('/comentario', productController.updateComentario);  
 
