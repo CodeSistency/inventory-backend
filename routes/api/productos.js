@@ -19,7 +19,7 @@ const upload = multer({ storage: storage })
 
 router.route('/').get(productController.getAllProducts)
 
-router.route('/').get(productController.createNewProduct)
+router.route('/').post(productController.createNewProduct)
 
 // router.route('/search').get(productController.searchProducts)
 

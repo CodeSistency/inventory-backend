@@ -27,9 +27,14 @@ const productSchema = new Schema({
     default: "",
   },
   precio: {
-    type: Number,
-    required: true,
-    default: 0,
+    type: String,
+    // required: true,
+    // default: 0,
+  },
+  cantidad: {
+    type: String,
+    // required: true,
+    // default: 0,
   },
   // imagen: {
   //   type: String,

@@ -74,7 +74,7 @@ const createNewProduct = async (req, res) => {
         
     }
     console.log(req.body)
-    const {titulo, precio, descripcion, codigo} = req.body
+    const {nombre, precio, descripcion, cantidad, codigo} = req.body
 
 //     const uniqueFileName = uuidv4() + path.extname(imageFile.originalname);
 
@@ -86,9 +86,10 @@ const createNewProduct = async (req, res) => {
         // fs.writeFileSync(imagePath, imageFile.buffer);
 
         const result = await Product.create({
-            titulo: titulo,
+            titulo: nombre,
             descripcion: descripcion,
             precio: precio,
+            cantidad: cantidad,
             codigo: codigo,
             
             
