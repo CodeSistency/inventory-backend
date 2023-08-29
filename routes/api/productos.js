@@ -23,20 +23,20 @@ router.route('/').get(productController.createNewProduct)
 
 router.route('/search').get(productController.searchProducts)
 
-router.put('/comentario', productController.updateComentario);  
+// router.put('/comentario', productController.updateComentario);  
 
-router.get('/comentario', productController.getAllComentarios);
+// router.get('/comentario', productController.getAllComentarios);
 
-router.get('/limited', productController.getLimitedProducts);
+// router.get('/limited', productController.getLimitedProducts);
 
-router.get('/qr', productController.getQRProducts);
+// router.get('/qr', productController.getQRProducts);
 
-router.get('/some', productController.getSomeProducts);
+// router.get('/some', productController.getSomeProducts);
 
-router.get('/random', productController.getAllRandomProducts);
+// router.get('/random', productController.getAllRandomProducts);
    
-router.get('/gender/:gender', productController.getProductsByGender);
-router.get('/tipo/:type', productController.getProductsByType);
+// router.get('/gender/:gender', productController.getProductsByGender);
+// router.get('/tipo/:type', productController.getProductsByType);
     
 
 router.route('/:id')
