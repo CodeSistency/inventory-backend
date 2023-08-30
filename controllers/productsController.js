@@ -69,12 +69,12 @@ const createNewProduct = async (req, res) => {
     const imageFile = req.file;
 
 
-    if (!req?.body?.nombre || !req?.body?.descripcion) {
-        return res.status(400).json({ 'message': 'First and last names are required' });
+    // if (!req?.body?.nombre || !req?.body?.descripcion) {
+    //     return res.status(400).json({ 'message': 'First and last names are required' });
         
-    }
+    // }
     console.log(req.body)
-    const {nombre, precio, descripcion, cantidad, codigo} = req.body
+    const {titulo, precio, descripcion, cantidad, codigo} = req.body
     console.log(nombre, precio, descripcion, cantidad, codigo)
 
 //     const uniqueFileName = uuidv4() + path.extname(imageFile.originalname);
@@ -87,7 +87,7 @@ const createNewProduct = async (req, res) => {
         // fs.writeFileSync(imagePath, imageFile.buffer);
 
         const result = await Product.create({
-            titulo: nombre,
+            titulo: titulo,
             descripcion: descripcion,
             precio: precio,
             cantidad: cantidad,

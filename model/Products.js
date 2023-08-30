@@ -19,11 +19,13 @@ const colorSchema = new Schema({
 const productSchema = new Schema({
   titulo: {
     type: String,
-    required: true,
+    // required: true,
+    default: "",
+
   },
   descripcion: {
     type: String,
-    required: true,
+    // required: true,
     default: "",
   },
   precio: {
@@ -33,6 +35,8 @@ const productSchema = new Schema({
   },
   cantidad: {
     type: String,
+    default: "",
+
     // required: true,
     // default: 0,
   },
