@@ -115,10 +115,11 @@ const updateProduct = async (req, res) => {
     if (!product) {
         return res.status(204).json({ "message": `No Product matches ID ${req.params.id}.` });
     }
-    if (req.body?.titulo) product.titulo = req.body.titulo;
+    if (req.body?.nombre) product.titulo = req.body.nombre;
     if (req.body?.descripcion) product.descripcion = req.body.descripcion;
     if (req.body?.precio) product.precio = req.body.precio;
     if (req.body?.codigo) product.codigo = req.body.codigo;
+    if (req.body?.cantidad) product.cantidad = req.body.cantidad;
    
     
     const result = await Product.findByIdAndUpdate(req.params.id, product);
