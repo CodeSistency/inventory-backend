@@ -23,12 +23,7 @@ const salesTrackingSchema = new Schema({
     codigo: { type: String, default: ""},
     titulo: { type: String, default: ""},
     precio: { type: Number, default: 0},
-    tallas: {
-        S: [colorSchema],
-        M: [colorSchema],
-        L: [colorSchema],
-        XL: [colorSchema],
-      },
+    sold: {type: Number, default: 0}
   },
   
 //   revenue: { type: Number, required: true, default: 0 },

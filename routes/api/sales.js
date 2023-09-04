@@ -5,7 +5,7 @@ const ROLES_LIST = require('../../config/roles_list');
 const verifyRoles = require('../../middleware/verifyRoles');
 const upload = require("../../middleware/upload")
 
-router.route('/').post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), salesController.newSale)
+router.route('/').post(salesController.newSale)
     // .put(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), productController.updateProduct)
     // .delete(verifyRoles(ROLES_LIST.Admin), productController.deleteProduct);
     
