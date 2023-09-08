@@ -10,7 +10,7 @@ router.route('/').post(salesController.newSale).get(salesController.getAllSales)
     // .delete(verifyRoles(ROLES_LIST.Admin), productController.deleteProduct);
     
 
-// router.route('/:id')
+router.route('/:id').delete(salesController.deleteSale)
 //     .get(productController.getProduct)
 //     .delete(verifyRoles(ROLES_LIST.Admin),  productController.deleteProduct)
 //     .put(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), productController.updateProduct)

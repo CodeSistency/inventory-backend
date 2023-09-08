@@ -90,4 +90,27 @@ const createNewProduct = async (req, res) => {
     }
 }
 
-module.exports = {createNewProduct, newSale, getAllSales}
+const deleteSale = async (req, res) => {
+  const saleId = req.params.id; // Get the product ID from URL parameter
+
+  if (!saleId) {
+      return res.status(400).json({ 'message': 'Product ID required.' });
+  }
+
+  // ... rest of your code ...
+
+  try {
+      const sale = await SalesTracking.findOne({ _id: saleId }).exec();
+      if (!sale) {
+          return res.status(204).json({ "message": `No sale matches ID ${saleId}.` });
+      }
+
+      const result = await SalesTracking.deleteOne({ _id: saleId });
+      res.json(result);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ "message": "Server Error" });
+  }
+}
+
+module.exports = {createNewProduct, newSale, getAllSales, deleteSale}
