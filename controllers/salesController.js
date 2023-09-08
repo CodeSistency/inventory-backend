@@ -20,12 +20,13 @@ const newSale = async (req, res) => {
     try {
         const { productos } = req.body;
         const savedRecords = [];
+        console.log(productos)
     
         // Loop through the array of sales data and create a new sales tracking record for each sale
         for (const product of productos) {
           const { codigo, titulo, precio, cantidad } = product;
           
-    
+          console.log(product)
           // Create a new sales tracking record
           const salesRecord = new SalesTracking({
             product: {
