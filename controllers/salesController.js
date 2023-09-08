@@ -3,6 +3,12 @@ const Product = require('../model/Products');
 
 // Function to calculate the total quantity sold and revenue for a sale
 
+const getAllSales = async (req, res) => {
+  const sale = await SalesTracking.find();
+  if (!sale) return res.status(204).json({ 'message': 'No Sale found.' });
+  res.json(sale);
+}
+
 const updateProductQuantity = async (codigo, size, color, quantity) => {
     try {
       const product = await Product.findOne({ codigo });
@@ -84,4 +90,4 @@ const createNewProduct = async (req, res) => {
     }
 }
 
-module.exports = {createNewProduct, newSale}
+module.exports = {createNewProduct, newSale, getAllSales}
