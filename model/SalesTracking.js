@@ -19,15 +19,15 @@ const colorSchema = new Schema({
   });
 
 const salesTrackingSchema = new Schema({
-  product: {
-    codigo: { type: String, default: ""},
-    titulo: { type: String, default: ""},
-    precio: { type: Number, default: 0},
-    sold: {type: Number, default: 0}
-  },
-  
-//   revenue: { type: Number, required: true, default: 0 },
-  date: { type: Date, default: Date.now },
+  product: [{
+    codigo: { type: String, default: "" },
+    titulo: { type: String, default: "" },
+    precio: { type: Number, default: 0 },
+    sold: { type: Number, default: 0 }
+  }],
+  referencia: { type: String, default: "" },
+  metodo: { type: String, default: "" },
+  date: { type: Date, default: Date.now }
 });
 
 const SalesTracking = mongoose.model('SalesTracking', salesTrackingSchema);

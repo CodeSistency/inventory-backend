@@ -22,45 +22,76 @@ const updateProductQuantity = async (codigo, size, color, quantity) => {
     }
   };
 
-const newSale = async (req, res) => {
-    try {
-        const { productos } = req.body;
-        const savedRecords = [];
-        console.log(productos)
+// const newSale = async (req, res) => {
+//     try {
+//         const { productos } = req.body;
+//         const savedRecords = [];
+//         console.log(productos)
     
-        // Loop through the array of sales data and create a new sales tracking record for each sale
-        for (const product of productos) {
-          const { codigo, titulo, precio, cantidad, sold } = product;
+//         // Loop through the array of sales data and create a new sales tracking record for each sale
+//         for (const product of productos) {
+//           const { codigo, titulo, precio, cantidad, sold } = product;
           
-          console.log(product)
-          // Create a new sales tracking record
-          const salesRecord = new SalesTracking({
-            product: {
-              codigo,
-              titulo,
-              precio,
-              sold,
-            },
-            date: new Date(),
-          });
+//           console.log(product)
+//           // Create a new sales tracking record
+//           const salesRecord = new SalesTracking({
+//             product: {
+//               codigo,
+//               titulo,
+//               precio,
+//               sold,
+//             },
+//             date: new Date(),
+//           });
     
-          const savedRecord = await salesRecord.save();
-          savedRecords.push(savedRecord);
+//           const savedRecord = await salesRecord.save();
+//           savedRecords.push(savedRecord);
     
-          // Update the quantity in the Products model
-          const productToUpdate = await Product.findOne({ codigo });
+//           // Update the quantity in the Products model
+//           const productToUpdate = await Product.findOne({ codigo });
+//       if (productToUpdate) {
+//         productToUpdate.cantidad = cantidad; // Update the entire "tallas" object in the product
+//         await productToUpdate.save();
+//       }
+//     }
+    
+//         return res.status(201).json(savedRecords);
+//       } catch (error) {
+//         console.error(error);
+//         return res.status(500).json({ message: 'An error occurred while creating sales tracking records' });
+//       }
+// }
+
+const newSale = async (req, res) => {
+  try {
+    const { referencia, metodo, productos } = req.body;
+
+    // Create a new sales tracking record
+    const salesRecord = new SalesTracking({
+      products: productos,
+      referencia,
+      metodo,
+      date: new Date()
+    });
+
+    const savedRecord = await salesRecord.save();
+
+    // Update the quantity in the Products model
+    for (const product of productos) {
+      const { codigo, cantidad } = product;
+      const productToUpdate = await Product.findOne({ codigo });
       if (productToUpdate) {
-        productToUpdate.cantidad = cantidad; // Update the entire "tallas" object in the product
+        productToUpdate.cantidad = cantidad;
         await productToUpdate.save();
       }
     }
-    
-        return res.status(201).json(savedRecords);
-      } catch (error) {
-        console.error(error);
-        return res.status(500).json({ message: 'An error occurred while creating sales tracking records' });
-      }
-}
+
+    return res.status(201).json(savedRecord);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'An error occurred while creating sales tracking records' });
+  }
+};
 
 const createNewProduct = async (req, res) => {
     const {originalname,path} = req.file;
