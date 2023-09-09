@@ -21,7 +21,7 @@ const colorSchema = new Schema({
 const salesTrackingSchema = new Schema({
   product: [{
     codigo: { type: String, default: "" },
-    titulo: { type: String, default: "" },
+    titulo: { type: String, default: "", required: true },
     precio: { type: Number, default: 0 },
     sold: { type: Number, default: 0 }
   }],
