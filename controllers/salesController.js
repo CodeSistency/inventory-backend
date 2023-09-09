@@ -64,13 +64,14 @@ const updateProductQuantity = async (codigo, size, color, quantity) => {
 
 const newSale = async (req, res) => {
   try {
-    const { referencia, metodo, productos } = req.body;
+    const { referencia, metodo, productos, total } = req.body;
 
     // Create a new sales tracking record
     const salesRecord = new SalesTracking({
       products: productos,
       referencia,
       metodo,
+      total,
       date: new Date()
     });
 

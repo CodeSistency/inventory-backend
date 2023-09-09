@@ -25,6 +25,7 @@ const salesTrackingSchema = new Schema({
     precio: { type: Number, default: 0 },
     sold: { type: Number, default: 0 }
   }],
+  total: { type: Number, default: 0 },
   referencia: { type: String, default: "" },
   metodo: { type: String, default: "" },
   date: { type: Date, default: Date.now }
