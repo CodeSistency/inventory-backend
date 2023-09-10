@@ -150,7 +150,7 @@ const updateProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
     const productId = req.params.id; // Get the product ID from URL parameter
-
+    console.log(productId)
     if (!productId) {
         return res.status(400).json({ 'message': 'Product ID required.' });
     }
@@ -159,6 +159,7 @@ const deleteProduct = async (req, res) => {
 
     try {
         const product = await Product.findOne({ _id: productId }).exec();
+        console.log(product)
         if (!product) {
             return res.status(204).json({ "message": `No Product matches ID ${productId}.` });
         }

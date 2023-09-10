@@ -138,18 +138,18 @@ const deleteSale = async (req, res) => {
           return res.status(204).json({ "message": `No sale matches ID ${saleId}.` });
       }
 
-      console.log(sale)
+      // console.log(sale)
 
-      for (const product of sale.product) {
-        const { codigo, sold } = product;
-        const productToUpdate = await Product.findOne({ codigo });
+      // for (const product of sale.product) {
+      //   const { codigo, sold } = product;
+      //   const productToUpdate = await Product.findOne({ codigo });
 
-        if (productToUpdate) {
-          console.log(productToUpdate)
-          productToUpdate.cantidad += sold; // Update the quantity by adding the sold quantity
-          await productToUpdate.save();
-        }
-      }
+      //   if (productToUpdate) {
+      //     console.log(productToUpdate)
+      //     productToUpdate.cantidad += sold; // Update the quantity by adding the sold quantity
+      //     await productToUpdate.save();
+      //   }
+      // }
 
       const result = await SalesTracking.deleteOne({ _id: saleId });
       res.json(result);
