@@ -29,13 +29,13 @@ const productSchema = new Schema({
     default: "",
   },
   precio: {
-    type: String,
+    type: Number,
     // required: true,
-    // default: 0,
+    default: 0,
   },
   cantidad: {
-    type: String,
-    default: "",
+    type: Number,
+    default: 0,
 
     // required: true,
     // default: 0,
