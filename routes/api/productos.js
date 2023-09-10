@@ -42,6 +42,7 @@ router.route('/').post(productController.createNewProduct)
 router.route('/:id')
     .get(productController.getProduct)
     .put(productController.updateProduct)
+    .delete(productController.deleteProduct)
     
     
     
