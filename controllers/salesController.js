@@ -124,6 +124,7 @@ const createNewProduct = async (req, res) => {
 
 const deleteSale = async (req, res) => {
   const saleId = req.params.id; // Get the product ID from URL parameter
+  console.log(saleId)
 
   if (!saleId) {
       return res.status(400).json({ 'message': 'Product ID required.' });
@@ -137,10 +138,14 @@ const deleteSale = async (req, res) => {
           return res.status(204).json({ "message": `No sale matches ID ${saleId}.` });
       }
 
+      console.log(sale)
+
       for (const product of sale.product) {
         const { codigo, sold } = product;
         const productToUpdate = await Product.findOne({ codigo });
+
         if (productToUpdate) {
+          console.log(productToUpdate)
           productToUpdate.cantidad += sold; // Update the quantity by adding the sold quantity
           await productToUpdate.save();
         }
