@@ -68,7 +68,7 @@ const newSale = async (req, res) => {
 
     // Create a new sales tracking record
     const salesRecord = new SalesTracking({
-      products: productos,
+      product: productos,
       referencia,
       metodo,
       total,
